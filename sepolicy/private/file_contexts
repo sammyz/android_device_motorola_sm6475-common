@@ -1,0 +1,2 @@
+# ATEL UI Trigger
+/product/bin/atel_ui_trigger                            u:object_r:atel_ui_trigger_exec:s0
