@@ -5,3 +5,5 @@
 
 # Touch
 /vendor/bin/hw/vendor\.lineage\.touch-service\.moto_sm6475 u:object_r:hal_lineage_touch_default_exec:s0
+
+# ATEL UI Trigger

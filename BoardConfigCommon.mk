@@ -16,6 +16,10 @@
 
 COMMON_PATH := device/motorola/sm6475-common
 
+# Build broken flags for proprietary prebuilts
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
 # A/B
 AB_OTA_UPDATER := true
 
@@ -63,7 +67,8 @@ TARGET_NO_BOOTLOADER := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 TARGET_NEEDS_DTBOIMAGE := true
-TARGET_MERGE_DTBS_WILDCARD ?= parrot*base
+TARGET_MERGE_DTBS_WILDCARD ?= parrot*
+TARGET_MERGE_DTBOS_WILDCARD ?= parrot*
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
@@ -143,26 +148,8 @@ TARGET_KERNEL_EXT_MODULES := \
     nxp/opensource/driver \
     st/opensource/driver
 
-TARGET_KERNEL_EXT_MODULES += \
-    motorola/drivers/mmi_annotate \
-    motorola/drivers/mmi_info \
-    motorola/drivers/power/bm_adsp_ulog \
-    motorola/drivers/power/mmi_charger \
-    motorola/drivers/power/qti_glink_charger \
-    motorola/drivers/power/qpnp_adaptive_charge \
-    motorola/drivers/misc/utag \
-    motorola/drivers/misc/mmi_stow \
-    motorola/drivers/mmi_relay \
-    motorola/drivers/misc/mmi_sys_temp \
-    motorola/drivers/regulator/dio8015 \
-    motorola/drivers/sensors \
-    motorola/drivers/misc/hall \
-    motorola/drivers/misc/sx937x_multi \
-    motorola/drivers/input/touchscreen/touchscreen_mmi \
-    motorola/drivers/input/touchscreen/goodix_berlin_mmi \
-    motorola/drivers/input/misc/goodix_fod_mmi \
-    motorola/drivers/input/misc/rbs_fod_mmi \
-    motorola/drivers/moto_netopt/con_dfpar
+# Prebuilt Motorola DLKMs provided from vendor/motorola/sm6475-common/modules
+# TARGET_KERNEL_EXT_MODULES += motorola/drivers/* (not in sm6475-modules tree)
 endif
 
 # Metadata

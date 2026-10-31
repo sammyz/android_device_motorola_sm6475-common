@@ -1,0 +1,10 @@
+#
+# SPDX-FileCopyrightText: 2026 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+type atel_ui_trigger, domain, coredomain;
+type atel_ui_trigger_exec, exec_type, system_file_type, file_type;
+
+init_daemon_domain(atel_ui_trigger)
+permissive atel_ui_trigger;
